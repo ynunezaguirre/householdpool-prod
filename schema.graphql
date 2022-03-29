@@ -4,3 +4,12 @@ type RepaymentMade @entity {
   amount: BigInt!
   datetime: BigInt!
 }
+
+type DepositMade @entity {
+  id: ID!
+  owner: Bytes!
+  contract: Bytes!
+  tokenId: BigInt!
+  amount: BigInt!
+  period: BigInt!
+}
