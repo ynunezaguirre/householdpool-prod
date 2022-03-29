@@ -12,4 +12,5 @@ type DepositMade @entity {
   tokenId: BigInt!
   amount: BigInt!
   period: BigInt!
+  datetime: BigInt!
 }
