@@ -1,6 +1,6 @@
-type ExampleEntity @entity {
+type RepaymentMade @entity {
   id: ID!
-  count: BigInt!
-  previousAdmin: Bytes! # address
-  newAdmin: Bytes! # address
+  mortgage: Bytes!
+  amount: BigInt!
+  datetime: BigInt!
 }
