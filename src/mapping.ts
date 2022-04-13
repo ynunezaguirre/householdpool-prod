@@ -2,8 +2,9 @@ import { BigInt } from "@graphprotocol/graph-ts"
 import {
   RepaymentMade,
   DepositMade,
+  DrawdownMade,
 } from "../generated/HouseHoldPool/HouseHoldPool"
-import { RepaymentMade as Repayment, DepositMade as Deposit } from "../generated/schema"
+import { RepaymentMade as Repayment, DepositMade as Deposit, DrawdownMade as Drawdown } from "../generated/schema"
 
 export function handleRepaymentMade(event: RepaymentMade): void {
   let entity = Repayment.load(event.transaction.hash.toHex())
@@ -26,6 +27,17 @@ export function handleDepositMade(event: DepositMade): void {
   entity.tokenId = event.params.tokenId
   entity.amount = event.params.amount
   entity.period = event.params.period
+  entity.datetime = event.block.timestamp
+  entity.save()
+}
+
+export function handleDrawdownMade(event: DrawdownMade): void {
+  let entity = Drawdown.load(event.transaction.hash.toHex())
+  if (!entity) {
+    entity = new Drawdown(event.transaction.hash.toHex())
+  }
+  entity.borrower = event.params.owner
+  entity.amount = event.params.amount
   entity.datetime = event.block.timestamp
   entity.save()
 }

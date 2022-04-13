@@ -14,3 +14,10 @@ type DepositMade @entity {
   period: BigInt!
   datetime: BigInt!
 }
+
+type DrawdownMade @entity {
+  id: ID!
+  borrower: Bytes!
+  amount: BigInt!
+  datetime: BigInt!
+}

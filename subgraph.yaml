@@ -15,6 +15,7 @@ dataSources:
       entities:
         - RepaymentMade
         - DepositMade
+        - DrawdownMade
       abis:
         - name: HouseHoldPool
           file: ./abis/HouseHoldPool.json
@@ -23,4 +24,6 @@ dataSources:
           handler: handleRepaymentMade
         - event: DepositMade(indexed address,address,indexed uint256,uint256,uint256)
           handler: handleDepositMade
+        - event: DrawdownMade(indexed address,uint256)
+          handler: handleDrawdownMade
       file: ./src/mapping.ts
