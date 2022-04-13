@@ -36,7 +36,8 @@ export function handleDrawdownMade(event: DrawdownMade): void {
   if (!entity) {
     entity = new Drawdown(event.transaction.hash.toHex())
   }
-  entity.borrower = event.params.owner
+  entity.mortgage = event.params.mortgage
+  entity.borrower = event.params.borrower
   entity.amount = event.params.amount
   entity.datetime = event.block.timestamp
   entity.save()

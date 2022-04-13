@@ -79,7 +79,13 @@
       {
         "indexed": true,
         "internalType": "address",
-        "name": "owner",
+        "name": "mortgage",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "borrower",
         "type": "address"
       },
       {

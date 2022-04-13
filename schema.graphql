@@ -17,6 +17,7 @@ type DepositMade @entity {
 
 type DrawdownMade @entity {
   id: ID!
+  mortgage: Bytes!
   borrower: Bytes!
   amount: BigInt!
   datetime: BigInt!
