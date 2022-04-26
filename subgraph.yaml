@@ -22,7 +22,7 @@ dataSources:
       eventHandlers:
         - event: RepaymentMade(indexed address,uint256)
           handler: handleRepaymentMade
-        - event: DepositMade(indexed address,address,indexed uint256,uint256,uint256)
+        - event: DepositMade(indexed address,address,indexed uint256,uint256,uint256,uint256)
           handler: handleDepositMade
         - event: DrawdownMade(indexed address,indexed address,uint256)
           handler: handleDrawdownMade

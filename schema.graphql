@@ -13,6 +13,7 @@ type DepositMade @entity {
   amount: BigInt!
   period: BigInt!
   datetime: BigInt!
+  rate: BigInt!
 }
 
 type DrawdownMade @entity {

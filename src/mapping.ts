@@ -27,6 +27,7 @@ export function handleDepositMade(event: DepositMade): void {
   entity.tokenId = event.params.tokenId
   entity.amount = event.params.amount
   entity.period = event.params.period
+  entity.rate = event.params.rate
   entity.datetime = event.block.timestamp
   entity.save()
 }
