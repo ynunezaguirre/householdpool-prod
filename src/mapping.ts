@@ -3,8 +3,14 @@ import {
   RepaymentMade,
   DepositMade,
   DrawdownMade,
+  DrawdownFiatMade,
 } from "../generated/HouseHoldPool/HouseHoldPool"
-import { RepaymentMade as Repayment, DepositMade as Deposit, DrawdownMade as Drawdown } from "../generated/schema"
+import {
+  RepaymentMade as Repayment,
+  DepositMade as Deposit,
+  DrawdownMade as Drawdown,
+  DrawdownFiatMade as DrawdownFiat,
+} from "../generated/schema"
 
 export function handleRepaymentMade(event: RepaymentMade): void {
   let entity = Repayment.load(event.transaction.hash.toHex())
@@ -40,6 +46,19 @@ export function handleDrawdownMade(event: DrawdownMade): void {
   entity.mortgage = event.params.mortgage
   entity.borrower = event.params.borrower
   entity.amount = event.params.amount
+  entity.datetime = event.block.timestamp
+  entity.save()
+}
+
+export function handleDrawdownFiatMade(event: DrawdownFiatMade): void {
+  let entity = DrawdownFiat.load(event.transaction.hash.toHex())
+  if (!entity) {
+    entity = new DrawdownFiat(event.transaction.hash.toHex())
+  }
+  entity.mortgage = event.params.mortgage
+  entity.borrower = event.params.borrower
+  entity.amount = event.params.amount
+  entity.date = event.params.date
   entity.datetime = event.block.timestamp
   entity.save()
 }

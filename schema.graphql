@@ -23,3 +23,12 @@ type DrawdownMade @entity {
   amount: BigInt!
   datetime: BigInt!
 }
+
+type DrawdownFiatMade @entity {
+  id: ID!
+  mortgage: Bytes!
+  borrower: BigInt!
+  amount: BigInt!
+  date: BigInt!
+  datetime: BigInt!
+}
