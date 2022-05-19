@@ -19,6 +19,7 @@ export function handleRepaymentMade(event: RepaymentMade): void {
   }
   entity.mortgage = event.params.mortgage
   entity.amount = event.params.amount
+  entity.paymentType = event.params.paymentType
   entity.datetime = event.block.timestamp
   entity.save()
 }

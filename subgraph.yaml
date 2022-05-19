@@ -21,7 +21,7 @@ dataSources:
         - name: HouseHoldPool
           file: ./abis/HouseHoldPool.json
       eventHandlers:
-        - event: RepaymentMade(indexed address,uint256)
+        - event: RepaymentMade(indexed address,uint256,uint256)
           handler: handleRepaymentMade
         - event: DepositMade(indexed address,address,indexed uint256,uint256,uint256,uint256)
           handler: handleDepositMade

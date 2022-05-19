@@ -2,6 +2,7 @@ type RepaymentMade @entity {
   id: ID!
   mortgage: Bytes!
   amount: BigInt!
+  paymentType: BigInt!
   datetime: BigInt!
 }
 
