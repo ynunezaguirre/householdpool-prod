@@ -6,7 +6,7 @@ dataSources:
     name: HouseHoldPool
     network: rinkeby
     source:
-      address: "0x8Ab1c234458b9f17d8fC88cca7D5b5431Ac2eFa2"
+      address: "0x822a6D70a8a473eFBE6e63204aDB87ED38f717f3"
       abi: HouseHoldPool
     mapping:
       kind: ethereum/events
