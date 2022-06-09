@@ -4,12 +4,14 @@ import {
   DepositMade,
   DrawdownMade,
   DrawdownFiatMade,
+  WithdrawNFTMade,
 } from "../generated/HouseHoldPool/HouseHoldPool"
 import {
   RepaymentMade as Repayment,
   DepositMade as Deposit,
   DrawdownMade as Drawdown,
   DrawdownFiatMade as DrawdownFiat,
+  WithdrawNFTMade as WithdrawNFT,
 } from "../generated/schema"
 
 export function handleRepaymentMade(event: RepaymentMade): void {
@@ -61,5 +63,16 @@ export function handleDrawdownFiatMade(event: DrawdownFiatMade): void {
   entity.amount = event.params.amount
   entity.date = event.params.date
   entity.datetime = event.block.timestamp
+  entity.save()
+}
+
+export function handleWithdrawNFTMade(event: WithdrawNFTMade): void {
+  let entity = WithdrawNFT.load(event.transaction.hash.toHex())
+  if (!entity) {
+    entity = new WithdrawNFT(event.transaction.hash.toHex())
+  }
+  entity.owner = event.params.origin
+  entity.tokenId = event.params.tokenId
+  entity.amount = event.params.amount
   entity.save()
 }

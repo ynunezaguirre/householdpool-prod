@@ -33,3 +33,10 @@ type DrawdownFiatMade @entity {
   date: BigInt!
   datetime: BigInt!
 }
+
+type WithdrawNFTMade @entity {
+  id: ID!
+  owner: Bytes!
+  tokenId: BigInt!
+  amount: BigInt!
+}

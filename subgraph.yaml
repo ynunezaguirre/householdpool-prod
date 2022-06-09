@@ -6,7 +6,7 @@ dataSources:
     name: HouseHoldPool
     network: rinkeby
     source:
-      address: "0x822a6D70a8a473eFBE6e63204aDB87ED38f717f3"
+      address: "0x71774Ff82c1F598607eA98bcfe42002571c8f23d"
       abi: HouseHoldPool
     mapping:
       kind: ethereum/events
@@ -17,6 +17,7 @@ dataSources:
         - DepositMade
         - DrawdownMade
         - DrawdownFiatMade
+        - WithdrawNFTMade
       abis:
         - name: HouseHoldPool
           file: ./abis/HouseHoldPool.json
@@ -29,4 +30,6 @@ dataSources:
           handler: handleDrawdownMade
         - event: DrawdownFiatMade(indexed address,indexed uint256,uint256,uint256)
           handler: handleDrawdownFiatMade
+        - event: WithdrawNFTMade(indexed address,indexed uint256,uint256)
+          handler: handleWithdrawNFTMade
       file: ./src/mapping.ts
