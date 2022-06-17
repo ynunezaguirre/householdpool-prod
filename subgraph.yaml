@@ -4,9 +4,9 @@ schema:
 dataSources:
   - kind: ethereum
     name: HouseHoldPool
-    network: matic
+    network: rinkeby
     source:
-      address: "0x822a6D70a8a473eFBE6e63204aDB87ED38f717f3"
+      address: "0x5e97860644af925A509fB7211D29CCb6b489c7aB"
       abi: HouseHoldPool
     mapping:
       kind: ethereum/events
