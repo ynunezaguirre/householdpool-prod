@@ -91,33 +91,8 @@
       {
         "indexed": true,
         "internalType": "uint256",
-        "name": "borrower",
+        "name": "clientId",
         "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "date",
-        "type": "uint256"
-      }
-    ],
-    "name": "DrawdownFiatMade",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "mortgage",
-        "type": "address"
       },
       {
         "indexed": true,
@@ -133,6 +108,37 @@
       }
     ],
     "name": "DrawdownMade",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "mortgage",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "clientId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "date",
+        "type": "uint256"
+      }
+    ],
+    "name": "MortgageStartMade",
     "type": "event"
   },
   {
@@ -179,13 +185,13 @@
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "amount",
+        "name": "clientId",
         "type": "uint256"
       },
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "paymentType",
+        "name": "amount",
         "type": "uint256"
       }
     ],
@@ -499,6 +505,29 @@
     "inputs": [
       {
         "internalType": "uint256",
+        "name": "clientId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "date",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "mortgage",
+        "type": "address"
+      }
+    ],
+    "name": "configStartDate",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
       },
@@ -562,29 +591,6 @@
       }
     ],
     "name": "drawdown",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "user",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "date",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "mortgage",
-        "type": "address"
-      }
-    ],
-    "name": "drawdownFromFiat",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -756,24 +762,6 @@
     "name": "repayment",
     "outputs": [],
     "stateMutability": "payable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "mortgage",
-        "type": "address"
-      }
-    ],
-    "name": "repaymentFiat",
-    "outputs": [],
-    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
